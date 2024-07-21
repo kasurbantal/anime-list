@@ -9,11 +9,11 @@ const Home = async () => {
 
   return (
     <div>
-      <div className="flex justify-between p-4">
+      <div className="flex justify-between items-center p-4">
         <h1 className="font-bold text-2xl">Paling Populer</h1>
         <Link
           href="/populer"
-          className="text-xl underline hover:text-indigo-500 transition-all"
+          className="md:text-xl text-sm underline hover:text-indigo-500 transition-all"
         >
           Lihat semua
         </Link>
