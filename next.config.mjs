@@ -4,6 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         hostname: "placehold.co",
+        hostname: "cdn.myanimelist.net",
       },
     ],
   },
