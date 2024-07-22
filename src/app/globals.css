@@ -4,13 +4,11 @@
 
 /* secara global di dalam komponen manapun me-reformat/ membuat img memiliki pengaturan seperti di bawah ini */
 img {
-  width: 100%;
-  height: auto;
-  transition: .3s ease all;
-  -webkit-transition: .3s ease all;
-  -moz-transition: .3s ease all;
-  -ms-transition: .3s ease all;
-  -o-transition: .3s ease all;
+  transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -ms-transition: 0.3s ease all;
+  -o-transition: 0.3s ease all;
 }
 
 /* memberikan efek membesar ketika gambar tersentuh pointer */
