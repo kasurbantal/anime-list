@@ -17,14 +17,6 @@ const Home = async () => {
         />
         <AnimeList api={topAnime} />
       </section>
-      <section>
-        <AnimeListHeader
-          title="Paling Baru"
-          linkTitle="Ikuti sekarang"
-          linkHref="/new"
-        />
-        <AnimeList api={topAnime} />
-      </section>
     </>
   );
 };
