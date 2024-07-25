@@ -11,11 +11,7 @@ const SearchPage = async ({ params }) => {
   return (
     <>
       <section>
-        <AnimeListHeader
-          title={`Pencarian untuk ${keyword}...`}
-          linkTitle="Lihat semua"
-          linkHref="/popular"
-        />
+        <AnimeListHeader title={`Pencarian untuk ${keyword}...`} />
         <AnimeList api={searchAnime} />
       </section>
     </>
