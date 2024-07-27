@@ -1,6 +1,4 @@
 "use client";
-import { FileSearch } from "@phosphor-icons/react";
-import Link from "next/link";
 
 export default function Loading() {
   return (
