@@ -1,9 +1,18 @@
 const Pagination = ({ page, lastPage, setPage }) => {
+  const scrollTop = () => {
+    scrollTo({
+      behavior: "smooth",
+      top: 0,
+    });
+  };
+
   const handleNextPage = () => {
     setPage((prevState) => prevState + 1);
+    scrollTop();
   };
   const handlePrevPage = () => {
     setPage((prevState) => prevState - 1);
+    scrollTop();
   };
 
   return (
