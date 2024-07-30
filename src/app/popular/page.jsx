@@ -7,10 +7,7 @@ import { useEffect, useState } from "react";
 
 const PopularPage = () => {
   const [page, setPage] = useState(1);
-  const [topAnime, setTopAnime] = useState({
-    data: [],
-    pagination: { last_visible_page: 1 },
-  });
+  const [topAnime, setTopAnime] = useState([]);
 
   const fetchData = async () => {
     const res = await fetch(
@@ -30,7 +27,8 @@ const PopularPage = () => {
       <AnimeList api={topAnime} />
       <Pagination
         page={page}
-        lastPage={topAnime.pagination.last_visible_page}
+        lastPage={topAnime.pagination?.last_visible_page}
+        setPage={setPage}
       />
     </>
   );
