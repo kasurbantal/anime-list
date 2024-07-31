@@ -7,31 +7,35 @@ const Pagination = ({ page, lastPage, setPage }) => {
   };
 
   const handleNextPage = () => {
-    if (page < lastPage) setPage((prevState) => prevState + 1);
+    setPage((prevState) => prevState + 1);
     scrollTop();
   };
   const handlePrevPage = () => {
-    if (page > 1) setPage((prevState) => prevState - 1);
+    setPage((prevState) => prevState - 1);
     scrollTop();
   };
 
   return (
     <div className="flex justify-center items-center py-4 px-2 gap-4 text-color-primary text-2xl">
-      <button
-        className="transition-all hover:text-color-light"
-        onClick={handlePrevPage}
-      >
-        Prev
-      </button>
+      {page <= 1 ? null : (
+        <button
+          className="transition-all hover:text-color-light"
+          onClick={handlePrevPage}
+        >
+          Prev
+        </button>
+      )}
       <p>
         {page} of {lastPage}
       </p>
-      <button
-        className="transition-all hover:text-color-light"
-        onClick={handleNextPage}
-      >
-        Next
-      </button>
+      {page >= lastPage ? null : (
+        <button
+          className="transition-all hover:text-color-light"
+          onClick={handleNextPage}
+        >
+          Next
+        </button>
+      )}
     </div>
   );
 };
