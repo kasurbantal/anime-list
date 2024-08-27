@@ -1,6 +1,6 @@
 import AnimeList from "@/components/AnimeList/AnimeList";
 import AnimeListHeader from "@/components/AnimeList/AnimeListHeader";
-import { getAnimeResponse } from "@/app/libs/api-libs";
+import { getAnimeResponse } from "@/libs/api-libs";
 
 const SearchPage = async ({ params }) => {
   const { keyword } = params;
