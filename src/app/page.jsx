@@ -8,8 +8,8 @@ const Home = async () => {
     "recommendations/anime",
     "entry"
   );
+  recommendedAnime = { data: recommendedAnime.slice(0, 8) };
 
-  recommendedAnime = { data: recommendedAnime };
   return (
     <>
       <section>
