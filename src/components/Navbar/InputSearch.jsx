@@ -10,7 +10,7 @@ const InputSearch = () => {
   const handleSearch = (event) => {
     event.preventDefault();
     const keyword = searchRef.current.value;
-    if (!keyword) return;
+    if (!keyword || keyword.trim() == "") return;
     if (searchRef.current) {
       router.push(`/search/${keyword}`);
     }
