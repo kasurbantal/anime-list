@@ -1,5 +1,6 @@
 import Link from "next/link";
 import InputSearch from "@/components/Navbar/InputSearch";
+import { signIn } from "next-auth/react";
 
 const Navbar = () => {
   return (
@@ -9,6 +10,9 @@ const Navbar = () => {
           ANIME-KINI
         </Link>
         <InputSearch />
+        <Link href="/api/auth/signin" className="">
+          Sign In
+        </Link>
       </div>
     </header>
   );
