@@ -19,7 +19,7 @@ const Home = async () => {
       <section>
         <AnimeListHeader
           title="Most Popular"
-          linkTitle="Lihat semua"
+          linkTitle="See everything"
           linkHref="/popular"
         />
         <AnimeList api={topAnime} />
