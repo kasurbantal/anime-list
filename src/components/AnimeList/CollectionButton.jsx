@@ -1,7 +1,9 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 const CollectionButton = ({ anime_mal_id, user_email }) => {
+  const [isCreated, setIsCreated] = useState(false);
+
   const handleCollection = async (event) => {
     event.preventDefault();
 
@@ -21,18 +23,28 @@ const CollectionButton = ({ anime_mal_id, user_email }) => {
 
       const collection = await response.json();
       console.log({ collection });
+      if (collection.status == 200) {
+        setIsCreated(collection.isCreated);
+      }
+      return;
     } catch (error) {
       console.error("Error:", error);
     }
   };
 
   return (
-    <button
-      onClick={handleCollection}
-      className="px-2 py-1 bg-color-accent rounded"
-    >
-      Add to Collections
-    </button>
+    <>
+      {isCreated ? (
+        <p className="text-color-accent">Success Added to Collections</p>
+      ) : (
+        <button
+          onClick={handleCollection}
+          className="px-2 py-1 bg-color-accent rounded"
+        >
+          Add to Collections
+        </button>
+      )}
+    </>
   );
 };
 
