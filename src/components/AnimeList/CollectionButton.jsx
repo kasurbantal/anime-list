@@ -1,19 +1,11 @@
 "use client";
 import React from "react";
 
-const CollectionButton = ({ anime_mal_id, user_mail }) => {
+const CollectionButton = ({ anime_mal_id, user_email }) => {
   const handleCollection = async (event) => {
     event.preventDefault();
-    const data = { anime_mal_id, user_mail };
-    // const response = await fetch("/api/v1/collection", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // });
-    // const collection = await response.json();
-    // console.log({ collection });
+
+    const data = { anime_mal_id, user_email };
     try {
       const response = await fetch("/api/v1/collection", {
         method: "POST",
