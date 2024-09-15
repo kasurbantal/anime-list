@@ -30,6 +30,7 @@ const CommentInput = ({ anime_mal_id, user_email, username, anime_title }) => {
       console.log({ comment });
       if (postComment.status == 200) {
         setIsCreated(postComment.isCreated);
+        setComment("");
       }
       return;
     } catch (error) {
@@ -40,7 +41,11 @@ const CommentInput = ({ anime_mal_id, user_email, username, anime_title }) => {
   return (
     <div className="flex flex-col gap-2">
       {isCreated && <p className="text-color-accent">comment was sent</p>}
-      <textarea onChange={handleInput} className="w-full h-32 text-xl p-4" />
+      <textarea
+        onChange={handleInput}
+        value={comment}
+        className="w-full h-32 text-xl p-4"
+      />
       <button
         onClick={handlePost}
         className=" w-52 px-2 py-3 bg-color-accent rounded"
