@@ -5,6 +5,7 @@ import CollectionButton from "@/components/AnimeList/CollectionButton";
 import { authUserSession } from "@/libs/auth-libs";
 import prisma from "@/libs/prisma";
 import CommentInput from "../../../components/AnimeList/CommentInput";
+import CommentBox from "../../../components/AnimeList/CommentBox";
 
 const Page = async ({ params: { id } }) => {
   const anime = await getAnimeResponse(`anime/${id}`);
@@ -77,6 +78,8 @@ const Page = async ({ params: { id } }) => {
         <p className="text-justify text-xl">{anime.data.synopsis}</p>
       </div>
       <div className="p-4">
+        <h3 className="text-color-primary text-xl mb-2">Viewer Comment</h3>
+        <CommentBox anime_mal_id={id} />
         <CommentInput
           anime_mal_id={id}
           user_email={user?.email}
