@@ -80,12 +80,14 @@ const Page = async ({ params: { id } }) => {
       <div className="p-4">
         <h3 className="text-color-primary text-xl mb-2">Viewer Comment</h3>
         <CommentBox anime_mal_id={id} />
-        <CommentInput
-          anime_mal_id={id}
-          user_email={user?.email}
-          username={user?.name}
-          anime_title={anime.data.title}
-        />
+        {user && (
+          <CommentInput
+            anime_mal_id={id}
+            user_email={user?.email}
+            username={user?.name}
+            anime_title={anime.data.title}
+          />
+        )}
       </div>
       <div>
         <VideoPlayer youtubeId={anime.data.trailer.youtube_id} />
