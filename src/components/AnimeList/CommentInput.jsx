@@ -1,20 +1,45 @@
 "use client";
 import { useState } from "react";
 
-const CommentInput = () => {
+const CommentInput = ({ anime_mal_id, user_email, username, anime_title }) => {
   const [comment, setComment] = useState("");
+  const [isCreated, setIsCreated] = useState(false);
 
   const handleInput = (event) => {
     setComment(event.target.value);
   };
 
-  const handlePost = (event) => {
+  const handlePost = async (event) => {
     event.preventDefault();
-    console.log(comment);
+
+    const data = { anime_mal_id, user_email, comment, username, anime_title };
+    try {
+      const response = await fetch("/api/v1/comment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const postComment = await response.json();
+      console.log({ comment });
+      if (postComment.status == 200) {
+        setIsCreated(postComment.isCreated);
+      }
+      return;
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
     <div className="flex flex-col gap-2">
+      {isCreated && <p className="text-color-accent">comment was sent</p>}
       <textarea onChange={handleInput} className="w-full h-32 text-xl p-4" />
       <button
         onClick={handlePost}

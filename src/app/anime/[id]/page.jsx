@@ -77,7 +77,12 @@ const Page = async ({ params: { id } }) => {
         <p className="text-justify text-xl">{anime.data.synopsis}</p>
       </div>
       <div className="p-4">
-        <CommentInput />
+        <CommentInput
+          anime_mal_id={id}
+          user_email={user?.email}
+          username={user?.name}
+          anime_title={anime.data.title}
+        />
       </div>
       <div>
         <VideoPlayer youtubeId={anime.data.trailer.youtube_id} />
