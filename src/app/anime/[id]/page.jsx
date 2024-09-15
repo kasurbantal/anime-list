@@ -4,6 +4,7 @@ import VideoPlayer from "@/components/Utilities/VideoPlayer";
 import CollectionButton from "@/components/AnimeList/CollectionButton";
 import { authUserSession } from "@/libs/auth-libs";
 import prisma from "@/libs/prisma";
+import CommentInput from "../../../components/AnimeList/CommentInput";
 
 const Page = async ({ params: { id } }) => {
   const anime = await getAnimeResponse(`anime/${id}`);
@@ -74,6 +75,9 @@ const Page = async ({ params: { id } }) => {
           className="w-full rounded object-cover"
         />
         <p className="text-justify text-xl">{anime.data.synopsis}</p>
+      </div>
+      <div className="p-4">
+        <CommentInput />
       </div>
       <div>
         <VideoPlayer youtubeId={anime.data.trailer.youtube_id} />
